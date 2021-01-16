@@ -121,7 +121,9 @@ function send(){
 		footer.style.opacity = 1;
 	} else
 	{
+		footer.style.transition = "opacity 0s";
 		footer.style.opacity = 0;
+		footer.style.transition = "opacity 0.8s";
 	}
 	
 }
