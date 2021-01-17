@@ -54,6 +54,8 @@ function layoutPage(){
 	nomBox.style.left = aWidth/2 + "px";
 	nomBox.style.width = aWidth/2 - 60 + "px";
 	nomBox.style.height = aHeight/2 - 75 + "px";
+	
+	send();
 }
 
 function call(){
@@ -75,12 +77,20 @@ function send(){
 	
 	var str = "";
 	if (search.Error == null){
-		for (var i = 0; i < search.Search.length; i++){
-			str += search.Search[i].Title.replace(/['"]+/g, "") + " (";
+		var size;
+	
+		if (search.Search.length <= (aHeight/93)){
+			size = search.Search.length;
+		} else {
+			size = Math.floor(aHeight/93);
+		}
+		
+		for (var i = 0; i < size; i++){
+			str += search.Search[i].Title.replace(/['",]+/g, "") + " (";
 			str += search.Search[i].Year + ") ";
 			str += "&nbsp; <button ";
 			str += "onclick='add(" + '"' + search.Search[i].imdbID + '"';
-			str += ',"' + search.Search[i].Title.replace(/['"]+/g, ""); 
+			str += ',"' + search.Search[i].Title.replace(/['",]+/g, ""); 
 			str += " (" + search.Search[i].Year + ')"' + ")'";
 			
 			for (let j = 0;j < noms.length; j++){
@@ -101,7 +111,7 @@ function send(){
 	
 	nomText.innerHTML = "Nominations (" + noms.length + "/5)";
 	
-	str = "";
+	str = "";	
 	
 	for (let i = 0; i < nomsOut.length; i++){
 		str += "<button ";
@@ -122,6 +132,7 @@ function send(){
 	}
 	
 	setCookie("noms",noms.toString(),365);
+	setCookie("nomsOut",nomsOut.toString(),365);
 	
 }
 
@@ -185,22 +196,8 @@ function checkCookie() {
 		noms = nomsCookie.split(",");
 	}
 	
-	var str = "";
-	
-	for(var i = 0; i< noms.length; i++){
-		nomsOut.push("");
-	}
-	
-	for(var i = 0; i < noms.length; i++){
-		var link = 'https://www.omdbapi.com/?type=movie&apikey=330ff9dc&i=' + noms[i];
-		request = new XMLHttpRequest();
-		request.open('GET',link,true);
-		request.onload = function(){search = JSON.parse(this.response);};
-		request.send();
-		
-		str += search.Search[i].Title.replace(/['"]+/g, ""); 
-		str += " (" + search.Search[i].Year + ')';
-		
-		nomsOut[i] = str;
+	var nomsOutCookie = getCookie("nomsOut");
+	if (nomsOutCookie != "") {
+		nomsOut = nomsOutCookie.split(",");
 	}
 }

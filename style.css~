@@ -61,13 +61,13 @@ button{
 #resultText{
 	top:-20px;
 	left:0px;
-	width: 100%;
+	width: 100%
 }
 
 #results{
 	top:40px;
 	left:0px;
-	width:95%;
+	width:100%;
 }
 
 #nomBox{
