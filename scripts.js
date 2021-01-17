@@ -86,11 +86,11 @@ function send(){
 		}
 		
 		for (var i = 0; i < size; i++){
-			str += search.Search[i].Title.replace(/['",]+/g, "") + " (";
+			str += search.Search[i].Title.replace(/['"]+/g, "") + " (";
 			str += search.Search[i].Year + ") ";
 			str += "&nbsp; <button ";
 			str += "onclick='add(" + '"' + search.Search[i].imdbID + '"';
-			str += ',"' + search.Search[i].Title.replace(/['",]+/g, ""); 
+			str += ',"' + search.Search[i].Title.replace(/['"]+/g, ""); 
 			str += " (" + search.Search[i].Year + ')"' + ")'";
 			
 			for (let j = 0;j < noms.length; j++){
@@ -165,8 +165,9 @@ function finished() {
 
 function setCookie(name,value,time) {
 	var day = new Date();
+	v = encodeURIComponent(value)
 	day.setTime(day.getTime() + (time*24*60*60*1000));
-	document.cookie = name + "=" + value + ";expires=" + day.toUTCString() +";secure";
+	document.cookie = name + "=" + v + ";expires=" + day.toUTCString() +";secure";
 }
 
 function getCookie(cName){
