@@ -65,7 +65,7 @@ function call(){
 }
 
 function send(){
-	var link = 'http://www.omdbapi.com/?type=movie&apikey=330ff9dc&s=' + searchBar.value;
+	var link = 'https://www.omdbapi.com/?type=movie&apikey=330ff9dc&s=' + searchBar.value;
 	request = new XMLHttpRequest();
 	request.open('GET',link,true);
 	request.onload = function(){search = JSON.parse(this.response);};
