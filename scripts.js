@@ -169,7 +169,8 @@ function setCookie(name,value,time) {
 	document.cookie = name + "=" + value + ";expires=" + day.toUTCString() + ";path=/";
 }
 
-function getCookie(name){
+function getCookie(cName){
+	name = cName + "=";
 	var str = decodeURIComponent(document.cookie);
 	var arr = str.split(";");
 	
@@ -200,4 +201,6 @@ function checkCookie() {
 	if (nomsOutCookie != "") {
 		nomsOut = nomsOutCookie.split(",");
 	}
+	
+	send();
 }
