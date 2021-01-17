@@ -166,7 +166,7 @@ function finished() {
 function setCookie(name,value,time) {
 	var day = new Date();
 	day.setTime(day.getTime() + (time*24*60*60*1000));
-	document.cookie = name + "=" + value + ";expires=" + day.toUTCString() + ";path=/";
+	document.cookie = name + "=" + value + ";expires=" + day.toUTCString() +";secure";
 }
 
 function getCookie(cName){
