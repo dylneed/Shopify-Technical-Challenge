@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Nomination</title>
+		<title>The Shoppies</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width initial-scale=1.0">
 		<link rel="stylesheet" type="text/css" href="style.css" />
@@ -11,7 +11,6 @@
 	<body>
 		<div id="header">
 			<h2 id="headerText">The Shoppies</h2>
-			<br>
 			<p id="subtitleText">
 				GitHub repository found at&nbsp
 				<a href="https://github.com/dylneed/ShopifyTechnicalChallenge">
@@ -21,19 +20,20 @@
 			<input id="searchBar"></input>
 		</div>
 		<div id="resultBox">
-			<h3 id="resultText">Search Results</h3>
+			<h3 id="resultText">Results</h3>
 			<div id="results"></div>
 		</div>
 		<div id="nomBox">
 			<h3 id="nomText">Nominations (0/5)</h3>
 			<div id="nominations"></div>
+			<div id="footer">
+				&nbsp
+				Finished?
+				Hit submit when you're done!
+				&nbsp
+				<button onclick="finished()">Submit</button>
+			</div>
 		</div>
-		<div id="footer">
-			&nbsp
-			Finished?
-			Hit submit when you're done!
-			&nbsp
-			<button onclick="finished()">Submit</button>
-		</div>
+		
 	</body>
 </html>

@@ -43,28 +43,23 @@ function layoutPage(){
 	header.style.width = aWidth - 10 + "px";
 	header.style.height = "100px";
 	
-	resultBox.style.top = "100px";
+	resultBox.style.top = "120px";
 	resultBox.style.left = "0px";
-	resultBox.style.width = aWidth/2 - 10 + "px";
-	resultBox.style.height = "auto";//*/aHeight - 120 + "px";
+	resultBox.style.width = aWidth/2 - 50 + "px";
+	resultBox.style.height = aHeight/2 - 75 + "px";
 	
-	nomBox.style.top = "100px";
+	nomBox.style.top = "120px";
 	nomBox.style.left = aWidth/2 + "px";
-	nomBox.style.width = aWidth/2 - 10 + "px";
-	nomBox.style.height = "auto";//*/aHeight - 120 + "px";
-	
-	footer.style.top = aHeight - 68 +"px"
-	footer.style.left = "-8px";
-	footer.style.width = aWidth + "px";
-	footer.style.height = "60px";
+	nomBox.style.width = aWidth/2 - 60 + "px";
+	nomBox.style.height = aHeight/2 - 75 + "px";
 }
 
 function call(){
 	send();
 	setTimeout(function(){send();}, 500);
-	resultText.innerHTML = 'Showing Results for "' + searchBar.value + '"';
+	resultText.innerHTML = 'Results for "' + searchBar.value + '"';
 	if (searchBar.value == "") {
-		resultText.innerHTML = "Search Results";
+		resultText.innerHTML = "Results";
 		results.innerHTML = "";
 	}
 }
@@ -121,9 +116,7 @@ function send(){
 		footer.style.opacity = 1;
 	} else
 	{
-		footer.style.transition = "opacity 0s";
 		footer.style.opacity = 0;
-		footer.style.transition = "opacity 0.8s";
 	}
 	
 }
