@@ -56,12 +56,12 @@ function layoutPage(){
 	resultBox.style.top = "120px";
 	resultBox.style.left = "0px";
 	resultBox.style.width = aWidth/2 - 50 + "px";
-	resultBox.style.height = aHeight/2 - 75 + "px";
+	resultBox.style.height = aHeight/2 - 15 + "px";
 	
 	nomBox.style.top = "120px";
 	nomBox.style.left = aWidth/2 + "px";
 	nomBox.style.width = aWidth/2 - 60 + "px";
-	nomBox.style.height = aHeight/2 - 75 + "px";
+	nomBox.style.height = aHeight/2 - 15 + "px";
 	
 	send();
 }
@@ -69,6 +69,7 @@ function layoutPage(){
 function call(){
 	send();
 	setTimeout(function(){send();}, 500);
+	setTimeout(function(){send();}, 1000);
 	resultText.innerHTML = 'Results for "' + searchBar.value + '"';
 	if (searchBar.value == "") {
 		resultText.innerHTML = "Results";
@@ -166,7 +167,7 @@ function remove(movID){
 }
 
 function finished() {
-	// code that sends noms to a database
+	// code that sends noms to PHP and an SQL database
 	
 	noms = [];
 	nomsOut = [];
