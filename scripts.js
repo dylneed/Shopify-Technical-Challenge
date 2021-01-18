@@ -71,7 +71,7 @@ function call(){
 	setTimeout(function(){send();}, 500);
 	setTimeout(function(){send();}, 1000);
 	resultText.innerHTML = 'Results for "' + searchBar.value + '"';
-	if (searchBar.value == "") {
+	if (searchBar.value == ""||searchBar.value == "Search for movies here") {
 		resultText.innerHTML = "Results";
 		results.innerHTML = "";
 	}
@@ -83,6 +83,12 @@ function send(){
 	request.open('GET',link,true);
 	request.onload = function(){search = JSON.parse(this.response);};
 	request.send();
+	
+	if (searchBar.value == "Search for movies here"){
+		searchBar.style.color = "rgb(121,144,179)";
+	} else {
+		searchBar.style.color = "black";
+	}
 	
 	var str = "";
 	if (search.Error == null){
@@ -110,7 +116,7 @@ function send(){
 			
 			str+=">Nominate</button> <br><br>";
 		}
-	} else if (searchBar.value == "" || search.Error == "Incorrect IMDb ID.") {
+	} else if (searchBar.value == "" || search.Error == "Incorrect IMDb ID."||searchBar.value == "Search for movies here") {
 		str = "";
 	} else {
 		str = search.Error;

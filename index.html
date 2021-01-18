@@ -17,7 +17,10 @@
 					https://github.com/dylneed/ShopifyTechnicalChallenge
 				</a>
 			</p>
-			<input id="searchBar"></input>
+			<input id="searchBar" value="Search for movies here" 
+			onfocus="if(this.value == 'Search for movies here'){this.value = '';}" 
+			onblur="if (this.value == ''){this.value = 'Search for movies here'} send();">
+			</input>
 		</div>
 		<div id="resultBox">
 			<h3 id="resultText">Results</h3>
